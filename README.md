@@ -61,3 +61,10 @@ This is a Sample Design for the Mediapp
 `pylintrc`: pylint standard
 `requirements.txt` list of project dependent libraries
 `wsgi.py`:wsgi run
+
+So where to put the code?
+
+- Place the route code in `application/controllers`
+- place the model code in `application/models`.
+- Put the code of the initialization binding app in `application/init.py`.
+- Put the database in the `config/development.py` file.
