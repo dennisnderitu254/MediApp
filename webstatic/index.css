@@ -45,9 +45,10 @@ header {
 }
 
 .text-button-area {
-    padding-right: 20px;
+    padding-right: 10px;
     text-align: center;
     width:80%;
+    margin: 0 auto;
 }
 .text-button-area h1 {
     margin-top: 20px;
@@ -57,6 +58,7 @@ header {
 }
 .text-button-area button a {
     text-decoration: none;
+    text-align: center;
 }
 
 .text-button-area p  {
@@ -70,11 +72,13 @@ header {
 .text-button-area button {
     background-color: #79E3FB;
     width: auto;
-    font-size: 25px;
+    font-size: 20px;
     font-family: sans-serif;
     font-weight: 200;
     padding-left: 30px;
     margin-top: 30px;
+    border-radius: 25px;
+
 }
 
 .hero-image {
@@ -93,7 +97,7 @@ header {
 
   .our-services {
     margin-top: 50px;
-    margin: 0 30px;
+    margin: 0 50px;
   }
   .services-details {
     text-align: center;
@@ -111,15 +115,17 @@ header {
 
   .cards {
     display: grid;
-    gap:30px;
+    gap:35px;
     grid-template-columns:repeat(3, 1fr);
     margin-top: 80px;
+    width: 80%;
+    margin: 0 auto;
   }
 
   .card-item{
     border: 5px solid #79E3FB;
     border-radius: 10px;
-    height: 300px;
+    height: 220px;
     background-color: rgba(192,192,192,0.3);;
   }
   /* .card-item button {
@@ -128,13 +134,14 @@ header {
     background-color: #79E3FB;
   } */
   .card-item img {
-    height: 230px;
-    width: 230px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
+    object-fit: fill;
   }
 
   .card-item p{
-    font-size: 30px;
+    font-size: 22px;
     font-weight: 200;
     font-family: Arial;
     text-align: center;
@@ -157,8 +164,12 @@ header {
 }
 
 .values-container_card {
-    display: flex;
-    margin: 0 10px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    margin: 0 auto;
+    width: 75%;
+
 }
 
 .item-container {
