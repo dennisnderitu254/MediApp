@@ -58,7 +58,7 @@ header {
 }
 .text-button-area button a {
     text-decoration: none;
-    text-align: center;
+    margin-right: 20px;
 }
 
 .text-button-area p  {
@@ -183,12 +183,14 @@ header {
     text-decoration: underline;
     margin-bottom: 2px;
     text-underline-position: under;
+    text-align: center;
+    font-size: 20px;
 }
 
 .item-container p {
     font-size: 20px;
     font-family: sans-serif;
-    font-weight: 100;
+    font-weight: 50;
 }
   /*end of value section */
 
