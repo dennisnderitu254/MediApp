@@ -23,10 +23,34 @@
                         <li><a href="#">Services</a></li>
                         <li><a href="#">Register</a></li>
                         <li><a href="#">Login</a></li>
+                        <button class="open-button" onclick="openForm()">Open Form</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+
                     </ul>
                 </nav>
             </div>
         </header>
+
+         <!-- login and registration popup page -->
+         <section>
+            <div id="myForm" class="login_and_registration_popup">
+                <div class="login-reg-logo">
+                    <img src="../images/MediAppLogo.png" alt="logo">
+                </div>
+               <div class="login-registration-details">
+                <div class="login">
+                    <button><a href="#">Patient login</a></button>
+                    <button><a href="#">doctor login</a></button>
+                </div>
+                <div class="registration">
+                    <button><a href="#">Patient Registration</a></button>
+                    <button><a href="#">Doctor Registration</a></button>
+                </div>
+               </div>
+            </div>
+        </section>
+
+
         <!-- hero section-->
         <section>
             <div class="hero-section">
@@ -188,6 +212,20 @@
         </section>
 
     </div>
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+            document.body.style.overflow = "hidden";
+            // document.body.style.backgroundColor = "grey";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+            document.body.style.overflow = "auto";
+            // document.body.style.backgroundColor = "white";
+            }
+    </script>
+
 
 </body>
 </html>
