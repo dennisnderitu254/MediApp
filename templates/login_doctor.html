@@ -14,7 +14,6 @@
     <div class="container">
         <h2>Doctor Registration</h2>
         <form action="{{ url_for('register') }}" method="post">
-            {% if mesage is defined and mesage %}
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" name="email">
