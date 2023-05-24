@@ -19,36 +19,37 @@ mysql = MySQL(app)
 
 @app.route('/home')
 def home():
-    message = 'Welcome to MediApp'
+    message = 'Welcome to MediApp!!'
     return render_template('home.html', message=message)
 
 
 @app.route('/loginpatient')
 def login_patient():
-    return render_template('login_patient.html')
+    message = 'Welcome User!'
+    return render_template('login_patient.html', message=message)
 
 
 @app.route('/logindoctor')
 def login_doctor():
-    message = ''
+    message = 'Welcome Doctor'
     return render_template('login_doctor.html', message=message)
 
 
 @app.route('/registerpatient')
 def register_patient():
-    message = ''
+    message = 'Welcome Patient'
     return render_template('registration_patient.html', message=message)
 
 
 @app.route('/registerdoctor')
 def register_doctor():
-    message = ''
+    message = 'Welcome Doctor'
     return render_template('registration_doctor.html', message=message)
 
 
-@app.route('/admin')
-def admin_login():
-    return render_template('admin_login.html')
+# @app.route('/admin')
+# def admin_login():
+#     return render_template('admin_login.html')
 
 
 @app.route('/logout')

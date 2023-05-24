@@ -13,7 +13,7 @@
 
     <div class="container">
         <h2>Patient Registration</h2>
-        <form action="{{ url_for('register') }}" method="post">
+        <form action="{{ url_for('register_patient') }}" method="post">
             {% if mesage is defined and mesage %}
             <div class="alert alert-warning">{{ mesage }}</div>
             {% endif %}
