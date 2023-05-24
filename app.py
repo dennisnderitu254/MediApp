@@ -1,235 +1,126 @@
-from flask import Flask, render_template, url_for, redirect
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError
-from flask_bcrypt import Bcrypt
+from flask import Flask, render_template, request, redirect, url_for, session
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import re
 
 app = Flask(__name__)
-db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-app.config['SECRET_KEY'] = 'secret1234'
 
-admin_role = Role(name='admin')
-doctor_role = Role(name='doctor')
-patient_role = Role(name='patient')
+app.secret_key = 'kenya1234'
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'root1234'
+app.config['MYSQL_DB'] = 'mediappdb'
 
-db.session.add_all([admin_role, doctor_role, patient_role])
-db.session.commit()
-
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'login'
-
-
-@login_manager.patient_loader
-def load_patient(patient_id):
-    return Patient.query.get(int(patient_id))
-
-
-@login_manager.doctor_loader
-def load_doctor(doctor_id):
-    return Doctor.query.get(int(doctor_id))
-
-
-@login_manager.doctor_loader
-def load_doctor(patient_id):
-    return Doctor.query.get(int(patient_id))
-
-
-class Patient(db.model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(150), unique=True)
-    last_name = db.Column(db.String(150), unique=True)
-    email = db.Column(db.String(150), unique=True)
-    password = db.Column(db.String(150))
-
-
-class Doctor(db.model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(150), unique=True)
-    last_name = db.Column(db.String(150), unique=True)
-    email = db.Column(db.String(150), unique=True)
-    password = db.Column(db.String(150))
-
-
-class Role(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), unique=True, nullable=False)
-
-
-class Appointment(db.model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    patient_id = db.Column(db.Integer, unique=True)
-    doctor_id = db.Column(db.Integer, unique=True)
-    date = db.Column(db.String(150), unique=True)
-    time = db.Column(db.String(150), unique=True)
-    reason = db.Column(db.String(150), unique=True)
-    status = db.Column(db.String(150), unique=True)
-
-
-class Prescription(db.model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    patient_id = db.Column(db.Integer, unique=True)
-    doctor_id = db.Column(db.Integer, unique=True)
-    date = db.Column(db.String(150), unique=True)
-    time = db.Column(db.String(150), unique=True)
-    reason = db.Column(db.String(150), unique=True)
-    status = db.Column(db.String(150), unique=True)
-    prescription = db.Column(db.String(150), unique=True)
-
-
-class MedicalHistory(db.model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    patient_id = db.Column(db.Integer, unique=True)
-    doctor_id = db.Column(db.Integer, unique=True)
-    date = db.Column(db.String(150), unique=True)
-    time = db.Column(db.String(150), unique=True)
-    reason = db.Column(db.String(150), unique=True)
-    status = db.Column(db.String(150), unique=True)
-    prescription = db.Column(db.String(150), unique=True)
-    medical_history = db.Column(db.String(150), unique=True)
-
-
-class Payment(db.model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    patient_id = db.Column(db.Integer, unique=True)
-    doctor_id = db.Column(db.Integer, unique=True)
-    date = db.Column(db.String(150), unique=True)
-    time = db.Column(db.String(150), unique=True)
-    reason = db.Column(db.String(150), unique=True)
-    status = db.Column(db.String(150), unique=True)
-    prescription = db.Column(db.String(150), unique=True)
-    medical_history = db.Column(db.String(150), unique=True)
-    payment = db.Column(db.String(150), unique=True)
-
-
-class Message(db.model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    patient_id = db.Column(db.Integer, unique=True)
-    doctor_id = db.Column(db.Integer, unique=True)
-    date = db.Column(db.String(150), unique=True)
-    time = db.Column(db.String(150), unique=True)
-    reason = db.Column(db.String(150), unique=True)
-    status = db.Column(db.String(150), unique=True)
-    prescription = db.Column(db.String(150), unique=True)
-    medical_history = db.Column(db.String(150), unique=True)
-    payment = db.Column(db.String(150), unique=True)
-    message = db.Column(db.String(150), unique=True)
-
-
-class Chat(db.model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    patient_id = db.Column(db.Integer, unique=True)
-    doctor_id = db.Column(db.Integer, unique=True)
-    date = db.Column(db.String(150), unique=True)
-    time = db.Column(db.String(150), unique=True)
-    reason = db.Column(db.String(150), unique=True)
-    status = db.Column(db.String(150), unique=True)
-    prescription = db.Column(db.String(150), unique=True)
-    medical_history = db.Column(db.String(150), unique=True)
-    payment = db.Column(db.String(150), unique=True)
-    message = db.Column(db.String(150), unique=True)
-    chat = db.Column(db.String(150), unique=True)
-
-
-class RegisterForm(FlaskForm):
-    username = StringField(validators=[
-                           InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
-
-    password = PasswordField(validators=[
-                             InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
-
-    submit = SubmitField('Register')
-
-    def validate_username(self, username):
-        existing_user_username = User.query.filter_by(
-            username=username.data).first()
-        if existing_user_username:
-            raise ValidationError(
-                'That username already exists. Please choose a different one.')
-
-
-class LoginForm(FlaskForm):
-    username = StringField(validators=[
-                           InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
-
-    password = PasswordField(validators=[
-                             InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
-
-    submit = SubmitField('Login')
+mysql = MySQL(app)
 
 
 @app.route('/')
-def home():
-    return render_template('home.html')
-
-
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/loginpatient', methods=['GET', 'POST'])
 def login_patient():
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = Patient.query.filter_by(username=form.username.data).first()
-        if user:
-            if bcrypt.check_password_hash(user.password, form.password.data):
-                login_user(user)
-                return redirect(url_for('dashboard'))
-    return render_template('login_patient.html', form=form)
+    mesage = ''
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+        email = request.form['email']
+        password = request.form['password']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute(
+            'SELECT * FROM patient WHERE email = % s AND password = % s', (email, password, ))
+        patient = cursor.fetchone()
+        if patient:
+            session['loggedin'] = True
+            session['patientid'] = patient['patientid']
+            session['name'] = patient['name']
+            session['email'] = patient['email']
+            mesage = 'Logged in successfully !'
+            return render_template('user.html', mesage=mesage)
+        else:
+            mesage = 'Please enter correct email / password !'
+    return render_template('login.html', mesage=mesage)
 
 
+@app.route('/logindoctor', methods=['GET', 'POST'])
 def login_doctor():
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = Doctor.query.filter_by(username=form.username.data).first()
-        if user:
-            if bcrypt.check_password_hash(user.password, form.password.data):
-                login_user(user)
-                return redirect(url_for('dashboard'))
-    return render_template('login_doctor.html', form=form)
+    mesage = ''
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+        email = request.form['email']
+        password = request.form['password']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute(
+            'SELECT * FROM doctor WHERE email = % s AND password = % s', (email, password, ))
+        doctor = cursor.fetchone()
+        if doctor:
+            session['loggedin'] = True
+            session['doctorid'] = doctor['doctorid']
+            session['name'] = doctor['name']
+            session['email'] = doctor['email']
+            mesage = 'Logged in successfully !'
+            return render_template('user.html', mesage=mesage)
+        else:
+            mesage = 'Please enter correct email / password !'
+    return render_template('login.html', mesage=mesage)
 
 
-@app.route('/dashboard', methods=['GET', 'POST'])
-@login_required
-def doctor_dashboard():
-    return render_template('doctor_dashboard.html')
+@app.route('/registerpatient', methods=['GET', 'POST'])
+def register_patient():
+    mesage = ''
+    if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form:
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        dateofbirth = request.form['dateofbirth']
+        gender = request.form['gender']
+        phonenumber = request.form['phonenumber']
+        username = request.form['username']
+        password = request.form['password']
+        email = request.form['email']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM patient WHERE email = % s', (email, ))
+        account = cursor.fetchone()
+        if account:
+            mesage = 'Account already exists !'
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
+            mesage = 'Invalid email address !'
+        elif not username or not password or not email:
+            mesage = 'Please fill out the form !'
+        else:
+            cursor.execute(
+                'INSERT INTO patient VALUES (NULL, % s, % s, % s, %s, %s, %s, %s, %s)', (firstname, lastname, dateofbirth, gender, phonenumber, username, email, password, ))
+            mysql.connection.commit()
+            mesage = 'You have successfully registered !'
+    elif request.method == 'POST':
+        mesage = 'Please fill out the form !'
+    return render_template('register.html', mesage=mesage)
 
 
-def patient_dashboard():
-    return render_template('patient_dashboard.html')
+@app.route('/registerdoctor', methods=['GET', 'POST'])
+def register_doctor():
+    mesage = ''
+    if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form:
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        dateofbirth = request.form['dateofbirth']
+        gender = request.form['gender']
+        phonenumber = request.form['phonenumber']
+        specialization = request.form['specialization']
+        username = request.form['username']
+        password = request.form['password']
+        email = request.form['email']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM patient WHERE email = % s', (email, ))
+        account = cursor.fetchone()
+        if account:
+            mesage = 'Account already exists !'
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
+            mesage = 'Invalid email address !'
+        elif not username or not password or not email:
+            mesage = 'Please fill out the form !'
+        else:
+            cursor.execute(
+                'INSERT INTO patient VALUES (NULL, % s, % s, % s, %s, %s, %s, %s, %s)', (firstname, lastname, dateofbirth, gender, phonenumber, specialization, username, email, password, ))
+            mysql.connection.commit()
+            mesage = 'You have successfully registered !'
+    elif request.method == 'POST':
+        mesage = 'Please fill out the form !'
+    return render_template('register.html', mesage=mesage)
 
 
-@app.route('/logout', methods=['GET', 'POST'])
-@login_required
-def logout():
-    logout_user()
-    return redirect(url_for('login'))
-
-
-@ app.route('/register', methods=['GET', 'POST'])
-def register():
-    form = RegisterForm()
-
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data)
-        new_user = User(username=form.username.data, password=hashed_password)
-        db.session.add(new_user)
-        db.session.commit()
-        return redirect(url_for('login'))
-
-    return render_template('register.html', form=form)
-
-
-@app.route('/admin')
-@login_required
-def admin_route():
-    if current_user.role.name == 'admin':
-        # Admin route logic
-        return 'Admin Route'
-    else:
-        return 'Unauthorized Access'
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run()
