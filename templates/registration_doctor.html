@@ -13,7 +13,7 @@
 
     <div class="container">
         <h2>Doctor Registration</h2>
-        <form action="{{ url_for('register_doctor') }}" method="post">
+        <form action="{{ url_for('registerdoctor') }}" method="post">
             <div class="form-group">
                 <label for="name">First Name:</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter First name"
@@ -63,7 +63,7 @@
                     name="pswd">
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
-            <p class="bottom">Already have an account? <a class="bottom" href="{{url_for('login')}}"> Login here</a></p>
+            <p class="bottom">Already have an account? <a class="bottom" href="#"> Login here</a></p>
         </form>
     </div>
 
