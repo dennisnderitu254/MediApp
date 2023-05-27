@@ -40,19 +40,22 @@ def login_doctor():
 @app.route('/registerp')
 @app.route('/registerpatient', methods=['GET', 'POST'])
 def register_patient():
-    return render_template('register_patient.html')
+    message = 'Welcome Patient'
+    return render_template('register_patient.html', message=message)
 
 
 @app.route('/registerd')
 @app.route('/registerdoctor', methods=['GET', 'POST'])
 def register_doctor():
-    return render_template('register_doctor.html')
+    message = 'Welcome Doctor'
+    return render_template('register_doctor.html', message=message)
 
 
 @app.route('/loginadmin')
 @app.route('/admin')
 def admin_login():
-    return render_template('admin_login.html')
+    message = 'Welcome Admin'
+    return render_template('admin_login.html', message=message)
 
 
 @app.route('/logout')
