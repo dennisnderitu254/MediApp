@@ -14,4 +14,3 @@ class BaseModel(Base):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Additional initialization code specific to the BaseModel

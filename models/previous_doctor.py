@@ -1,3 +1,11 @@
+#!/usr/bin/python3
+
+from basemodel import BaseModel
+import sqlalchemy
+from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy.orm import relationship
+
+
 class PreviousDoctor(BaseModel):
     __tablename__ = 'previous_doctors'
 
