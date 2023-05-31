@@ -10,8 +10,7 @@ Base = declarative_base()
 engine = create_engine("mysql://root:root1234@localhost/mediappDATABASE")
 Base.metadata.create_all(bind=engine)
 
-p1 = User("dennis@gmail.com", "Dennis", "Nderitu", "pass1234", "Patient")
+# p1 = User("dennis@gmail.com", "Dennis", "Nderitu", "pass1234", "Patient")
 
-
-session.add(p1)
-session.commit()
+# session.add(p1)
+# session.commit()

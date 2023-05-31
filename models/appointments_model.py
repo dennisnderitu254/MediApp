@@ -18,7 +18,8 @@ class Appointment(BaseModel):
     patient = relationship("Patient", backref="appointments")
     doctor = relationship("Doctor", backref="appointments")
 
-    def __init__(self, patient_id, doctor_id, appointment_datetime, status, feedback=None):
+    def __init__(self, patient_id, doctor_id, appointment_datetime, status,
+                 feedback=None):
         self.patient_id = patient_id
         self.doctor_id = doctor_id
         self.appointment_datetime = appointment_datetime
