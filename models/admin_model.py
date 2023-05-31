@@ -5,6 +5,7 @@ import sqlalchemy
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 
+
 class Admin(BaseModel):
     __tablename__ = 'admins'
 

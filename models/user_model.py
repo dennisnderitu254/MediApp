@@ -21,3 +21,6 @@ class User(BaseModel):
         self.last_name = last_name
         self.password = password
         self.role = role
+
+    def __repr__(self):
+        return f"({self.email}) {self.first_name} {self.last_name} ({self.password}, {self.role})"

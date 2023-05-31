@@ -2,8 +2,9 @@
 
 from basemodel import BaseModel
 import sqlalchemy
-from sqlalchemy import Columns String, PrimaryKey, ForeignKey, DateTime
+from sqlalchemy import Columns, String, PrimaryKey, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
+
 
 class Calendar(BaseModel):
     __tablename__ = 'calendar'
