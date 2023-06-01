@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 
-from basemodel import BaseModel
+from models.basemodel import BaseModel
 import sqlalchemy
-from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey, Integer, Date
 from sqlalchemy.orm import relationship
 
 class MedicalHistory(BaseModel):
    __tablename__ = 'medical_history'
 
-   patient_id = Column(Integer, ForeignKey('patients.id'), nullable=False)
+   patient_id = Column(String(36), ForeignKey('patients.id'))
    diagnosis = Column(String(255))
    hospital_of_diagnosis = Column(String(255))
    doctors_name = Column(String(255))
