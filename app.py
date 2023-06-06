@@ -1,16 +1,23 @@
-from sqlalchemy import create_engine, ForeignKey, Column, String, Integer
-from sqlalchemy.ext.declarative import declarative_base
-from flask import Flask, session, redirect, url_for, request
+#!/usr/bin/python3
+
+from models import storage
+from models.admin_model import Admin
+from models.appointments_model import Appointment
+from models.basemodel import Base, BaseModel
+from models.calender_model import Calendar
+from models.diagnosis_model import Diagnosis
+from models.doctor_model import Doctor
+from models.medical_history import MedicalHistory
+from models.medication_model import Medication
+from models.patient_model import Patient
+from models.previous_doctor import PreviousDoctor
 from models.user_model import User
-from models.basemodel import BaseModel
+
+from flask import Flask
+
+app = Flask(__name__)
 
 
-Base = declarative_base()
-
-engine = create_engine("mysql://root:root1234@localhost/mediappDATABASE")
-Base.metadata.create_all(bind=engine)
-
-# p1 = User("dennis@gmail.com", "Dennis", "Nderitu", "pass1234", "Patient")
-
-# session.add(p1)
-# session.commit()
+@app.route('/')
+def index():
+    return "Hello world"
