@@ -24,14 +24,15 @@ class DBStorage:
 
     def __init__(self):
         user = "root"
-        password = "123456"
+        password = "root1234"
         host = "localhost"
-        database = "mediapp"
+        database = "mediappnewdb"
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-                                        format(user,
-                                            password,
-                                            host,
-                                            database))
+                                      format(user,
+                                             password,
+                                             host,
+                                             database))
+
     def new(self, obj):
         self.__session.add(obj)
 
@@ -43,6 +44,7 @@ class DBStorage:
 
     def reload(self):
         Base.metadata.create_all(self.__engine)
-        session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        session_factory = sessionmaker(
+            bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session
