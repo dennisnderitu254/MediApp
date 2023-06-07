@@ -22,42 +22,42 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('webstatic/index.html')
+    return render_template('index.html')
 
 
 @app.route('/loginp')
 @app.route('/loginpatient')
 def login_patient():
     message = 'Welcome User!'
-    return render_template('webstatic/patientlogin.html', message=message)
+    return render_template('patientlogin.html', message=message)
 
 
 @app.route('/logind')
 @app.route('/logindoctor')
 def login_doctor():
     message = 'Welcome Doctor'
-    return render_template('webstatic/doctorlogin.html', message=message)
+    return render_template('doctorlogin.html', message=message)
 
 
 @app.route('/registerp')
 @app.route('/registerpatient', methods=['GET', 'POST'])
 def register_patient():
     message = 'Welcome Patient'
-    return render_template('webstatic/patientregister.html', message=message)
+    return render_template('patientregister.html', message=message)
 
 
 @app.route('/registerd')
 @app.route('/registerdoctor', methods=['GET', 'POST'])
 def register_doctor():
     message = 'Welcome Doctor'
-    return render_template('webstatic/doctorregister.html', message=message)
+    return render_template('doctorregister.html', message=message)
 
 
 @app.route('/loginadmin')
 @app.route('/admin')
 def admin_login():
     message = 'Welcome Admin'
-    return render_template('webstatic/adminlogin.html', message=message)
+    return render_template('adminlogin.html', message=message)
 
 
 @app.route('/logout')
