@@ -1,231 +1,629 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <title>MediApp</title>
-</head>
-<body>
-    <div class="container">
-        <!--navbar and logo section-->
-        <header>
-            <div class="navbar">
-                <div class="logo">
-                    <img src="../images/MediAppLogo.png" alt="logo">
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a  href="{{ url_for('register_user') }}">Register</a></li>
-                        <li><a href="#">Login</a></li>
-                        <button class="open-button" onclick="openForm()">Open Form</button>
-                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>MediApp</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="static/css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><span><i>Medi-App</i></span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#about-us">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url_for('register')}}">Register</a></li>
+                        <li class="nav-item" data-bs-toggle="modal" data-bs-target="#login-form"><a class="nav-link" href="#login-form" href="{{url_for('login')}}">Login</a></li>
                     </ul>
-                </nav>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To MediApp</div>
+                <!-- <div class="masthead-heading text-uppercase">Medical consultations from home</div> -->
+                <a class="btn btn-primary btn-xl text-uppercase" href="#portfolio">What We Offer</a>
             </div>
         </header>
-
-         <!-- login and registration popup page -->
-         <section>
-            <div id="myForm" class="login_and_registration_popup">
-                <div class="login-reg-logo">
-                    <img src="../images/MediAppLogo.png" alt="logo">
+        <!-- Security-->
+        <section class="page-section" id="security">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Security and Privacy</h2>
+                    <h3 class="section-subheading text-muted">We take seriously the data you provide</h3>
                 </div>
-               <div class="login-registration-details">
-                <div class="login">
-                    <button><a href="#">Patient login</a></button>
-                    <button><a href="#">doctor login</a></button>
-                </div>
-                <div class="registration">
-                    <button><a href="#">Patient Registration</a></button>
-                    <button><a href="#">Doctor Registration</a></button>
-                </div>
-               </div>
-            </div>
-        </section>
-
-
-        <!-- hero section-->
-        <section>
-            <div class="hero-section">
-                <div class="text-button-area">
-                    <h1>GET ACCESS TO TOP QUALIFIED DOCTORS FOR ONLINE
-                        CONSULTATIONS
-                    </h1>
-
-                    <P>Say goodbye to the hassle of searching endlessly,
-                        as we connect you with the perfect healthcare professional in just a few taps.
-                         Get the care you deserve with our seamless and reliable service.</P>
-                    <button><a href="#">CONSULT A DOCTOR</a></button>
-                </div>
-                <div class="hero-image">
-                    <img src="../images/doctor.png" alt="image of a doctor">
-                </div>
-            </div>
-        </section>
-
-        <!--services section-->
-
-        <section>
-            <div class="our-services">
-                <div class="services-details">
-                    <h2>Our services</h2>
-                    <h3>Get in touch with your doctor</h3>
-                </div>
-                <div class="cards">
-                    <div class="card-item">
-                        <img src="../images/Generalpractitioner.png" alt="">
-                        <!-- <button>CONSULT</button> -->
-                        <p>
-                            <span>Generalpractitioner</span>
-                        </p>
-
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Data Encryption</h4>
+                        <p class="text-muted">We employ industry-standard encryption protocols to safeguard your personal and medical information. Your data is encrypted during transmission and storage, ensuring that it remains confidential and secure</p>
                     </div>
-                    <div class="card-item">
-                        <img src="../images/ObstetricsandGynaecology.png" alt="">
-                        <!-- <button>CONSULT</button> -->
-                        <p>
-                            <span>Obstetrics and Gynaecology</span>
-                        </p>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shield-alt fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Compliance with Privacy Regulations</h4>
+                        <p class="text-muted">We strictly adhere to the guidelines set forth by privacy regulations such as HIPAA and GDPR. Our system is designed to meet these rigorous standards, ensuring the highest level of privacy and protection for your data</p>
                     </div>
-                    <div class="card-item">
-                        <img src="../images/General physician.png" alt="">
-                        <!-- <button>CONSULT</button> -->
-                        <p>
-                            <span>General physician</span>
-                        </p>
-
-                    </div>
-                    <div class="card-item">
-                        <img src="../images/Psychiatry.png" alt="">
-                        <!-- <button>CONSULT</button> -->
-                        <p>
-                            <span>Psychiatry</span>
-                        </p>
-
-                    </div>
-                    <div class="card-item">
-                        <img src="../images/Gastroenterology.png" alt="">
-                        <!-- <button>CONSULT</button> -->
-                        <p>
-                            Gastroenterology
-                        </p>
-
-                    </div>
-                    <div class="card-item">
-                        <img src="../images/Pediatrics.png" alt="">
-                        <!-- <button>CONSULT</button> -->
-                        <p>
-                            <span>Pediatrics</span>
-                        </p>
-
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-credit-card fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Secure Online Transactions</h4>
+                        <p class="text-muted">Secure Online Transactions: We prioritize the security of your financial information. Our website incorporates secure payment gateways and SSL encryption, ensuring that your online transactions are protected and your payment details remain secure.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- values section -->
-        <section>
-            <div class="values-container">
-                <div class="title-section">
-                    <h3>Through patient-centered care,
-                        accessibility, innovation, and trust,
-                        we strive to deliver exceptional healthcare
-                        experiences for optimal well-being</h3>
+        <!-- about us -->
+        <section class="page-section bg-dark" id="about-us">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase" style="color: white;">About Us</h2>
+                    <h3 class="section-subheading text-muted">Get to know more about the company and what we offer</h3>
                 </div>
-                <div class="values-container_card">
-                    <div class="item-container">
-                        <h3>Patient-Centered Care</h3>
-                        <p>At our medical app, we firmly believe
-                            in the power of patient-centered care.
-                            We understand that each individual is unique,
-                             with their own specific healthcare needs and
-                             preferences. That's why we prioritize
-                              putting patients at the center of
-                              everything we do. Our app is designed to
-                              provide a personalized and compassionate
-                              healthcare experience, where patients feel
-                              heard, respected, and actively involved in
-                               their care.</p>
+                <div class="row">
+
+                    <div class="col-lg-6 col-sm-6 mb-4">
+                        <img class="img-fluid" src="assets/img/about-us.jpg"/>
                     </div>
-                    <div class="item-container">
-                        <h3>Accessible Healthcare</h3>
-                        <p>We are committed to breaking down barriers
-                            and making healthcare accessible to all. We believe
-                            that everyone should have the opportunity to
-                            receive timely and reliable healthcare services,
-                            regardless of their location, background, or financial
-                             status. Our app connects patients with a diverse
-                             network of qualified doctors, specialists, and
-                              healthcare providers, ensuring that no matter where
-                               they are, they can access the care they need.
-                                We also offer flexible appointment scheduling
-                                options and telemedicine services, allowing users
-                                to receive medical advice and consultations from
-                                 the comfort of their own homes</p>
-                    </div>
-                    <div class="item-container">
-                        <h3>Innovation and Technology</h3>
-                        <p>At our medical app, we embrace the power
-                            of innovation and technology to revolutionize
-                            healthcare delivery. We leverage cutting-edge
-                            advancements to enhance the efficiency, convenience,
-                            and effectiveness of our services. Our app features
-                            intuitive interfaces, seamless communication tools,
-                            and secure data management systems to ensure a smooth
-                            user experience. We incorporate artificial intelligence
-                             and machine learning algorithms to provide
-                             personalized recommendations and intelligent
-                             insights.</p>
-                    </div>
-                    <div class="item-container">
-                        <h3>Trust and Reliability</h3>
-                        <p>Trust and reliability are
-                            at the core of our app's philosophy.
-                            We understand the importance of instilling
-                            confidence in our users when it comes to their
-                            healthcare decisions. That's why we have stringent
-                            quality control measures in place to ensure that
-                            all healthcare professionals on our platform are
-                            thoroughly vetted and accredited. We verify their
-                            qualifications, licenses, and professional background
-                            to guarantee that users receive care from trusted
-                            and competent practitioners..</p>
+                    <div class="col-lg-6 col-sm-5 mb-4">
+                        <h3 class="section-heading text-center text-uppercase" style="color: white;">About MediApp</h3>
+                        <p style="color: white;">At our medical consultation website, we are dedicated to transforming the way healthcare is delivered. Our journey began when a group of highly experienced doctors and talented programmers came together with a shared vision of providing exceptional healthcare services to individuals worldwide. With a deep understanding of the challenges and complexities in accessing reliable medical advice, we set out to create a platform that would bridge the gap between patients and expert healthcare professionals. Through a combination of cutting-edge technology, evidence-based practices, and personalized care, we have built a trusted ecosystem where patients can receive comprehensive medical consultations, specialist referrals, mental health support, preventive care guidance, and more. Our commitment to excellence, innovation, and the well-being of our users drives us to continually enhance and expand our services, empowering individuals to take control of their health and live their best lives</p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- end about us -->
+        <!-- services Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Services</h2>
+                    <h3 class="section-subheading text-muted">Explore our Range of Specialized Medical Consultation Services</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/general_medical_consultation.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">General Consultation</div>
+                                <div class="portfolio-caption-subheading text-muted">Consult a doctor on anything</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 2-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/specialist_doctor.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Specialist</div>
+                                <div class="portfolio-caption-subheading text-muted">Get refered to a Specialist</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 3-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/telemedicine.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Telemedicine Consultation</div>
+                                <div class="portfolio-caption-subheading text-muted">Consult over the internet</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <!-- Portfolio item 4-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/second_opinion.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Second Opinion</div>
+                                <div class="portfolio-caption-subheading text-muted">Get a second opinion</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <!-- Portfolio item 5-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/mental-health.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Mental health</div>
+                                <div class="portfolio-caption-subheading text-muted">Get access to specialized medical care</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <!-- Portfolio item 6-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/lifestyle-consultation.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">lifestyle consultation</div>
+                                <div class="portfolio-caption-subheading text-muted">Lifestyle health consultation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">How to get a Doctor</h2>
+                    <h3 class="section-subheading text-muted">We are here to ensure a smooth onboarding</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/create_account.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Registration</h4>
+                                <h4 class="subheading">create account and login</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">To get started, click on the "Sign Up" button located at the top right corner of the page. Fill in the required information, such as your name, email address, and password. Ensure your password meets the specified criteria for security. Once completed, click "Create Account" to register successfully.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/choose_service.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Choose a service</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Browse through our list of available medical consultation services on the homepage or the "Services" section. You can use the search bar or filter options to narrow down your choices based on specialties, doctors, or specific conditions. Click on the service of your choice to view more details, including doctor profiles and availability.</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/schedule_appointment.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
 
-        <!--footer section-->
-        <section>
-            <div class="footer-container">
-                <div class="copyright-text">
-                    <p>copyright@MediApp 2023</p>
+                                <h4 class="subheading">Schedule an appointment</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">After selecting a service, you'll be directed to the appointment scheduling page. Choose a convenient date and time for your consultation from the available slots displayed. If you prefer a specific doctor, you can select them at this stage as well. Once you've made your selections, click "Confirm" to proceed to the next step.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/medical_history.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Provide medical history</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">To ensure the doctor has all the necessary information, we kindly request that you provide your medical history before the consultation. You'll be prompted to fill out a form where you can enter details about your current and past medical conditions, medications, allergies, and any other relevant information. Rest assured that your information is treated with strict confidentiality.</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/complete_payment.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Complete payment</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">For certain services, there may be a payment requirement. If applicable, you'll be guided to a secure payment page where you can choose your preferred payment method, such as credit card or PayPal. Follow the prompts to complete the payment process. Once the payment is successful, you'll receive a confirmation of your payment.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Confirm
+                                <br />
+                                payment
+                                <br />
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Team-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+                    <h3 class="section-subheading text-muted">Seasoned doctors and programmers working together to ensure a robust system and patient well-being.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/samsonkimani.jpg" alt="..." />
+                            <h4>Samson kimani</h4>
+                            <p class="text-muted">Lead System Designer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="samsonkimani Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="samsonkimani Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="samsonkimani LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/lucymaina.jpeg" alt="..." />
+                            <h4>Dr Lucy Maina</h4>
+                            <p class="text-muted">Seasoned Medical practitioner</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="lucymaina Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="lucymaina Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="lucymaina LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/nderitu.jpeg" alt="..." />
+                            <h4>Dennis Kinyanjui</h4>
+                            <p class="text-muted">Lead Business Developer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="nderitu Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="nderitu Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="nderitu LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Our team is composed of highly experienced doctors who bring extensive medical knowledge and expertise to provide excellent patient care. Additionally, our talented programmers work diligently to develop and maintain a reliable and user-friendly system, ensuring a seamless experience for our patients. With this unique combination of medical and technical expertise, we prioritize both the well-being of our patients and the efficiency of our system</p></div>
                 </div>
             </div>
         </section>
 
-    </div>
-    <script>
-        function openForm() {
-            document.getElementById("myForm").style.display = "block";
-            document.body.style.overflow = "hidden";
-            // document.body.style.backgroundColor = "grey";
-        }
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Contact Us</h2>
+                    <h3 class="section-subheading text-muted">We are always working round the clock to ensure you are well served</h3>
+                </div>
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- Name input-->
+                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            </div>
+                            <div class="form-group">
+                                <!-- Email address input-->
+                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <!-- Phone number input-->
+                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <!-- Message input-->
+                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center text-white mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                            To activate this form, sign up at
+                            <br />
+                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <!-- Submit Button-->
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button></div>
+                </form>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; MediApp 2023</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">General Medical Consultation</h2>
+                                    <p class="item-intro text-muted">Get quality consultation from our seasoned doctors</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/general_medical_consultation.jpg" alt="..." />
+                                    <p>Our general medicine consultation service provides comprehensive healthcare for a wide range of common health issues and concerns. Our team of experienced doctors specializes in internal medicine and is dedicated to delivering high-quality care. During your consultation, our doctors will conduct a thorough assessment, taking into account your medical history, symptoms, and any relevant diagnostic tests. They will carefully listen to your concerns, ask detailed questions, and perform a physical examination to gain a comprehensive understanding of your condition.</p>
+                                    <p>Following the assessment, our doctors will provide an accurate diagnosis and explain the findings in a clear and understandable manner. They will discuss the available treatment options, including medication, lifestyle modifications, and necessary referrals to specialists if required. Our goal is to empower you with knowledge about your health and involve you in the decision-making process, ensuring that your treatment plan aligns with your preferences and individual needs.</p>
+                                    <p>Additionally, our general medicine consultation service places a strong emphasis on preventive care. Our doctors will work with you to develop personalized preventive strategies based on your medical history, risk factors, and lifestyle. This may include recommendations for routine screenings, vaccinations, healthy lifestyle habits, and disease prevention. By focusing on both acute and preventive care, we strive to optimize your overall health and well-being, enabling you to lead a fulfilling and active life.</p>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Specialist referrals</h2>
+                                    <p class="item-intro text-muted">Get refered to top specialist</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/specialist_doctor.jpg" alt="..." />
+                                    <p>Our specialist referral service ensures that you receive the specialized care you need for complex or specific medical conditions. Our team of doctors includes experts in various medical specialties, each with extensive experience and expertise in their respective fields. If your symptoms or condition require specialized evaluation or treatment, our doctors will conduct a comprehensive assessment and recommend the most suitable specialist for your specific needs.</p>
+                                    <p>We understand that navigating the healthcare system and finding the right specialist can be challenging. That's why we take pride in our seamless referral process. Our team will handle all the necessary coordination, including scheduling appointments, sharing medical records, and communicating with the specialist on your behalf. We maintain close relationships with a network of trusted specialists, ensuring that you receive the highest standard of care throughout your treatment journey.</p>
+                                    <p>Whether you require a cardiologist, dermatologist, orthopedic surgeon, neurologist, or any other specialized care, our specialist referral service streamlines the process, minimizing delays and ensuring timely access to the expertise you need. Our doctors will continue to collaborate with the specialist, providing comprehensive and integrated care to address your specific medical condition. We are committed to supporting you at every step, ensuring that you receive the specialized attention and treatment necessary to optimize your health outcomes.</p>
 
-        function closeForm() {
-            document.getElementById("myForm").style.display = "none";
-            document.body.style.overflow = "auto";
-            // document.body.style.backgroundColor = "white";
-            }
-    </script>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Telemedicine consultation</h2>
+                                    <p class="item-intro text-muted">Easily communicate with your favourite doctor online.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/telemedicine.jpg" alt="..." />
+                                    <p>Our telemedicine consultation service revolutionizes access to healthcare by bringing our experienced doctors directly to you, wherever you are. Through secure and encrypted video conferencing technology, you can connect with our doctors from the comfort and convenience of your home or any location with an internet connection. This eliminates the need for travel, reduces wait times, and offers a flexible solution for non-emergency medical consultations.</p>
+                                    <p>During a telemedicine consultation, our doctors will engage in a thorough discussion to understand your symptoms, medical history, and concerns. They will conduct a virtual examination, guiding you through self-assessment techniques when necessary. By leveraging advanced technology, our doctors can visually assess physical symptoms, review any available medical reports, and provide accurate diagnoses.</p>
+                                    <p>Once the diagnosis is determined, our doctors will create a personalized treatment plan tailored to your needs. This may involve prescribing medications, recommending lifestyle modifications, providing guidance on self-care measures, or suggesting further diagnostic tests if required. Our telemedicine consultation service is suitable for a wide range of conditions, including follow-up visits, medication management, minor acute illnesses, chronic disease management, mental health support, and general medical advice. Rest assured that your privacy and confidentiality are of utmost importance to us, and all telemedicine consultations are conducted in a secure and HIPAA-compliant environment.</p>
 
 
-</body>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 4 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Second Opinion</h2>
+                                    <p class="item-intro text-muted">Get a second opinion from a different specialist</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/second_opinion.jpg" alt="..." />
+                                    <p>Our second opinion consultation service offers you the opportunity to seek an additional expert evaluation of your medical condition. We understand that receiving a complex or critical diagnosis can be overwhelming, and making informed decisions about your health is crucial. Our team of specialized doctors will thoroughly review your medical history, test results, and diagnostic reports to provide an unbiased and comprehensive assessment.</p>
+                                    <p> During a second opinion consultation, our doctors will take the time to understand your concerns, answer any questions you may have, and provide clarity on your diagnosis and treatment options. They will offer a fresh perspective, drawing upon their extensive expertise and knowledge in their respective fields. Our goal is to empower you with the information needed to make confident decisions about your healthcare journey.</p>
+                                    <p>We believe in the importance of collaboration and patient autonomy. Our second opinion consultation service is designed to complement your existing healthcare team, ensuring that you have all the necessary information to make informed decisions. Whether you seek clarification, alternative treatment options, or reassurance, our doctors are committed to providing you with a thorough and objective assessment. We understand the significance of second opinions in healthcare decision-making and are dedicated to supporting you throughout the process.</p>
+
+
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 5 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Mental Health Consultation</h2>
+                                    <p class="item-intro text-muted">Get access to mental health experts</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/mental-health.jpg" alt="..." />
+                                    <p>Our mental health consultation service is centered around providing compassionate support and guidance for your mental well-being. Our team of mental health professionals, including psychiatrists and psychologists, specializes in the diagnosis and treatment of various mental health conditions. We recognize the importance of mental health in overall well-being and offer a safe and empathetic space for you to discuss your concerns.</p>
+                                    <p>During a mental health consultation, our experts will conduct a comprehensive assessment to understand your emotional, psychological, and behavioral patterns. They will listen attentively to your experiences, evaluate symptoms, and provide an accurate diagnosis. Our approach to treatment is tailored to your specific needs and may include therapy, medication management, lifestyle adjustments, and coping strategies.</p>
+                                    <p>We believe in a holistic and patient-centered approach to mental health. Our mental health consultation service is not just focused on symptom management but also emphasizes promoting overall well-being and improving quality of life. Our dedicated team of mental health professionals will work closely with you to develop a personalized treatment plan, providing ongoing support, guidance, and education. Our goal is to empower you to overcome challenges, build resilience, and achieve better mental health and emotional balance.</p>
+
+
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 6 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Lifestyle and preventive health Consultation</h2>
+                                    <p class="item-intro text-muted">Connect with our seasoned doctors and get the best advice</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/lifestyle-consultation.jpg" alt="..." />
+                                    <p>Our lifestyle and preventive health consultation service is designed to help you lead a healthy and fulfilling life by prioritizing preventive care and making positive lifestyle choices. Our doctors will conduct a comprehensive assessment of your medical history, lifestyle habits, and family background to develop personalized plans tailored to your needs.</p>
+                                    <p>During a lifestyle and preventive health consultation, our doctors will provide guidance on nutrition, exercise, stress management, and preventive screenings. They will help you understand your risk factors for various diseases and work with you to develop strategies to mitigate those risks. Our approach focuses on empowering you to take control of your health through informed decision-making and adopting healthy habits.</p>
+                                    <p>Our lifestyle and preventive health consultation service aims to prevent future health issues and promote overall well-being. By addressing risk factors, implementing healthy lifestyle changes, and emphasizing preventive measures, we strive to improve your quality of life and support you in achieving long-term health goals. Our doctors will provide ongoing support, monitor your progress, and adjust the treatment plan as needed, ensuring that you have the necessary tools to maintain a healthy and balanced lifestyle.</p>
+
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- login form -->
+
+            <div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-title" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" style="text-align: center !important;" id="login-title">Login</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/login" method="POST">
+                                <div class="form-group">
+                                    <label for="account-type">Select Account Type</label>
+                                    <select class="form-select"  data-toggle="tooltip" data-placement="right" title="choose an account to login">
+                                        <option selected>Select</option>
+                                        <option id="doctor" data-toggle="tooltip" data-placement="right" title="Select if you are a doctor to login as a doctor">Doctor</option>
+                                        <option id="patient" data-toggle="tooltip" data-placement="right" title="Select if you are a patient or seeking consultation to login as a patient">Patient</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="email" placeholder="email@gmail.com"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">password</label>
+                                    <input type="password" class="form-control" id="email"/>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" style="text-align: center;" type="submit">Login</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-primary">Login</button> -->
+                          </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- end login  -->
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
 </html>

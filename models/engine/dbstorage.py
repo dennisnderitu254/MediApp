@@ -48,3 +48,39 @@ class DBStorage:
             bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session
+
+    def get_all_users(self):
+        result = self.__session.execute("SELECT * FROM users")
+        users = result.fetchall()
+        return users
+
+    def get_all_docs_and_apps(self):
+        result = self.__session.execute("SELECT * FROM appointments")
+        docs_and_apps = result.fetchall()
+        l = len(docs_and_apps)
+        return docs_and_apps, l
+
+    def get_medical_history(self):
+        result = self.__session.execute("SELECT * FROM medical_history")
+        medical_history = result.fetchall()
+        return medical_history
+
+    def get_diagnoses(self):
+        result = self.__session.execute("SELECT * FROM diagnoses")
+        diagnoses = result.fetchall()
+        return diagnoses
+
+    def get_medications(self):
+        result = self.__session.execute("SELECT * FROM medications")
+        medications = result.fetchall()
+        return medications
+
+    def get_previous_doctors(self):
+        result = self.__session.execute("SELECT * FROM previous_doctors")
+        prev_doctors = result.fetchall()
+        return prev_doctors
+
+    def get_calendar(self):
+        result = self.__session.execute("SELECT * FROM calendar")
+        calendar = result.fetchall()
+        return calendar

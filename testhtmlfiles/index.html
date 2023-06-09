@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>MediApp</title>
+</head>
+<body>
+    <div class="container">
+        <!--navbar and logo section-->
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="../images/MediAppLogo.png" alt="logo">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a  href="{{ url_for('register_user') }}">Register</a></li>
+                        <li><a href="#">Login</a></li>
+                        <button class="open-button" onclick="openForm()">Open Form</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+         <!-- login and registration popup page -->
+         <section>
+            <div id="myForm" class="login_and_registration_popup">
+                <div class="login-reg-logo">
+                    <img src="../images/MediAppLogo.png" alt="logo">
+                </div>
+               <div class="login-registration-details">
+                <div class="login">
+                    <button><a href="#">Patient login</a></button>
+                    <button><a href="#">doctor login</a></button>
+                </div>
+                <div class="registration">
+                    <button><a href="#">Patient Registration</a></button>
+                    <button><a href="#">Doctor Registration</a></button>
+                </div>
+               </div>
+            </div>
+        </section>
+
+
+        <!-- hero section-->
+        <section>
+            <div class="hero-section">
+                <div class="text-button-area">
+                    <h1>GET ACCESS TO TOP QUALIFIED DOCTORS FOR ONLINE
+                        CONSULTATIONS
+                    </h1>
+
+                    <P>Say goodbye to the hassle of searching endlessly,
+                        as we connect you with the perfect healthcare professional in just a few taps.
+                         Get the care you deserve with our seamless and reliable service.</P>
+                    <button><a href="#">CONSULT A DOCTOR</a></button>
+                </div>
+                <div class="hero-image">
+                    <img src="../images/doctor.png" alt="image of a doctor">
+                </div>
+            </div>
+        </section>
+
+        <!--services section-->
+
+        <section>
+            <div class="our-services">
+                <div class="services-details">
+                    <h2>Our services</h2>
+                    <h3>Get in touch with your doctor</h3>
+                </div>
+                <div class="cards">
+                    <div class="card-item">
+                        <img src="../images/Generalpractitioner.png" alt="">
+                        <!-- <button>CONSULT</button> -->
+                        <p>
+                            <span>Generalpractitioner</span>
+                        </p>
+
+                    </div>
+                    <div class="card-item">
+                        <img src="../images/ObstetricsandGynaecology.png" alt="">
+                        <!-- <button>CONSULT</button> -->
+                        <p>
+                            <span>Obstetrics and Gynaecology</span>
+                        </p>
+                    </div>
+                    <div class="card-item">
+                        <img src="../images/General physician.png" alt="">
+                        <!-- <button>CONSULT</button> -->
+                        <p>
+                            <span>General physician</span>
+                        </p>
+
+                    </div>
+                    <div class="card-item">
+                        <img src="../images/Psychiatry.png" alt="">
+                        <!-- <button>CONSULT</button> -->
+                        <p>
+                            <span>Psychiatry</span>
+                        </p>
+
+                    </div>
+                    <div class="card-item">
+                        <img src="../images/Gastroenterology.png" alt="">
+                        <!-- <button>CONSULT</button> -->
+                        <p>
+                            Gastroenterology
+                        </p>
+
+                    </div>
+                    <div class="card-item">
+                        <img src="../images/Pediatrics.png" alt="">
+                        <!-- <button>CONSULT</button> -->
+                        <p>
+                            <span>Pediatrics</span>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- values section -->
+        <section>
+            <div class="values-container">
+                <div class="title-section">
+                    <h3>Through patient-centered care,
+                        accessibility, innovation, and trust,
+                        we strive to deliver exceptional healthcare
+                        experiences for optimal well-being</h3>
+                </div>
+                <div class="values-container_card">
+                    <div class="item-container">
+                        <h3>Patient-Centered Care</h3>
+                        <p>At our medical app, we firmly believe
+                            in the power of patient-centered care.
+                            We understand that each individual is unique,
+                             with their own specific healthcare needs and
+                             preferences. That's why we prioritize
+                              putting patients at the center of
+                              everything we do. Our app is designed to
+                              provide a personalized and compassionate
+                              healthcare experience, where patients feel
+                              heard, respected, and actively involved in
+                               their care.</p>
+                    </div>
+                    <div class="item-container">
+                        <h3>Accessible Healthcare</h3>
+                        <p>We are committed to breaking down barriers
+                            and making healthcare accessible to all. We believe
+                            that everyone should have the opportunity to
+                            receive timely and reliable healthcare services,
+                            regardless of their location, background, or financial
+                             status. Our app connects patients with a diverse
+                             network of qualified doctors, specialists, and
+                              healthcare providers, ensuring that no matter where
+                               they are, they can access the care they need.
+                                We also offer flexible appointment scheduling
+                                options and telemedicine services, allowing users
+                                to receive medical advice and consultations from
+                                 the comfort of their own homes</p>
+                    </div>
+                    <div class="item-container">
+                        <h3>Innovation and Technology</h3>
+                        <p>At our medical app, we embrace the power
+                            of innovation and technology to revolutionize
+                            healthcare delivery. We leverage cutting-edge
+                            advancements to enhance the efficiency, convenience,
+                            and effectiveness of our services. Our app features
+                            intuitive interfaces, seamless communication tools,
+                            and secure data management systems to ensure a smooth
+                            user experience. We incorporate artificial intelligence
+                             and machine learning algorithms to provide
+                             personalized recommendations and intelligent
+                             insights.</p>
+                    </div>
+                    <div class="item-container">
+                        <h3>Trust and Reliability</h3>
+                        <p>Trust and reliability are
+                            at the core of our app's philosophy.
+                            We understand the importance of instilling
+                            confidence in our users when it comes to their
+                            healthcare decisions. That's why we have stringent
+                            quality control measures in place to ensure that
+                            all healthcare professionals on our platform are
+                            thoroughly vetted and accredited. We verify their
+                            qualifications, licenses, and professional background
+                            to guarantee that users receive care from trusted
+                            and competent practitioners..</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--footer section-->
+        <section>
+            <div class="footer-container">
+                <div class="copyright-text">
+                    <p>copyright@MediApp 2023</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+            document.body.style.overflow = "hidden";
+            // document.body.style.backgroundColor = "grey";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+            document.body.style.overflow = "auto";
+            // document.body.style.backgroundColor = "white";
+            }
+    </script>
+
+
+</body>
+</html>

@@ -14,12 +14,28 @@ from models.medication_model import Medication
 from models.patient_model import Patient
 from models.previous_doctor import PreviousDoctor
 from models.user_model import User
-from models import DBStorage, Admin
+from models import DBStorage
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField
+from wtforms.validators import DataRequired, Email
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-db = DBStorage()
+# db = DBStorage()
+# c = db.cursor()
+app.config['SECRET_KEY'] = 'secretkey1234'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root1234@localhost/mediappnewdb'
+db = SQLAlchemy(app)
 
+
+class LoginForm(FlaskForm):
+    account_type = StringField('Account Type', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+
+
+################## ROUTING FUNCTIONS #########################
 
 @app.route('/')
 @app.route('/home')
@@ -27,93 +43,32 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/userreg')
-def user_reg():
-    return render_template('userregistration.html')
-
-
-@app.route('/loginpage')
-def loginpage1():
-    return render_template('loginpage.html')
-
-# User Login Page
-
-
-@app.route('/userlogin', methods=['GET', 'POST'])
-def userlogin():
-    email = request.form['email']
-    password = request.form['password']
-
-    # Retrieve user from the database based on email and password
-    user = db_session.query(User).filter_by(
-        email=email, password=password).first()
-
-    if user:
-        # User login successful
-        # Perform any additional actions or redirections
-        return render_template('index.html', mess='User login successful.')
-    else:
-        # Invalid credentials
-        return render_template('loginpage.html', err='Please enter correct credentials.')
-
-
-# Functions for adding User
-@app.route('/adduser', methods=['POST'])
-def add_user():
-    email = request.form['email']
-    firstname = request.form['firstname']
-    lastname = request.form['lastname']
-    password = request.form['password']
-
-    # Create a new User object
-    user = User(email=email, first_name=firstname,
-                last_name=lastname, password=password)
-
-    # Add the User object to the session
-    db_session.add(user)
-
-    try:
-        # Commit the changes to the database
-        db_session.commit()
-
-        return render_template('home.html', mess=f"User {firstname} {lastname} added successfully.")
-    except sqlalchemy.exc.SQLAlchemyError as error:
-        # Handle any database errors
-        return render_template('home.html', mess='Error occurred while adding user.')
-
-
-@app.route('/adminlogin', methods=['GET', 'POST'])
-def adminlogin():
+@app.route('/login', methods=['GET', 'POST'])
+def login():
     if request.method == 'POST':
-        username = request.form['username']
+        email = request.form['email']
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
         password = request.form['password']
+        role = 'user'  # Set the default role
 
-        # Query the database for an admin with the provided username and password
-        admin = db.session.query(Admin).join(Admin.user).filter(
-            User.email == username,
-            User.password == password
-        ).first()
+        # Create a new User instance
+        user = User(email=email, first_name=first_name,
+                    last_name=last_name, password=password, role=role)
 
-        if admin:
-            # Admin login successful
-            session['admin_id'] = admin.id
-            return redirect(url_for('admin_dashboard'))
-        else:
-            # Invalid credentials
-            return render_template('admin_login.html', error='Invalid username or password.')
-    return render_template('admin_login.html')
+        # Add the user to the database
+        db.session.add(user)
+        db.session.commit()
+
+        return 'User registered successfully'
+
+    return render_template('index.html')
 
 
-@app.route('/admindashboard')
-def admin_dashboard():
-    # Check if admin is logged in
-    if 'admin_id' in session:
-        admin_id = session['admin_id']
-        # Retrieve admin information from the database based on admin_id
-        admin = db.session.query(Admin).get(admin_id)
-        if admin:
-            # Admin dashboard page
-            return render_template('admin_dashboard.html', admin=admin)
+@app.route('/register')
+def register():
+    return render_template('register.html')
 
-    # Admin is not logged in, redirect to login page
-    return redirect(url_for('adminlogin'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
