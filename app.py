@@ -16,8 +16,8 @@ from models.previous_doctor import PreviousDoctor
 from models.user_model import User
 from models import DBStorage
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
-from wtforms.validators import DataRequired, Email
+from wtforms import StringField, PasswordField, SelectField
+from wtforms.validators import DataRequired, Email, Length
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -29,22 +29,28 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root1234@localhost/mediapp
 db = SQLAlchemy(app)
 
 
+# class LoginForm(FlaskForm):
+#     account_type = StringField('Account Type', validators=[DataRequired()])
+#     email = StringField('Email', validators=[DataRequired()])
+#     password = PasswordField('Password', validators=[DataRequired()])
+
 class LoginForm(FlaskForm):
-    account_type = StringField('Account Type', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    account_type = SelectField('Select Account Type', choices=[(
+        'select', 'Select'), ('doctor', 'Doctor'), ('patient', 'Patient')], validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[
+                             DataRequired(), Length(min=6)])
 
 
 ################## ROUTING FUNCTIONS #########################
 
 @app.route('/')
-@app.route('/home')
 def home():
     return render_template('index.html')
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/register', methods=['GET', 'POST'])
+def user_register():
     if request.method == 'POST':
         email = request.form['email']
         first_name = request.form['first_name']
@@ -60,14 +66,19 @@ def login():
         db.session.add(user)
         db.session.commit()
 
-        return 'User registered successfully'
+        return redirect(url_for('registration_success'))
 
-    return render_template('index.html')
-
-
-@app.route('/register')
-def register():
     return render_template('register.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def user_login():
+    return render_template('login.html')
+
+
+@app.route('/registration_success')
+def registration_success():
+    return 'User registered successfully'
 
 
 if __name__ == '__main__':

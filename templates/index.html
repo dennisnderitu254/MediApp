@@ -32,8 +32,8 @@
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{url_for('register')}}">Register</a></li>
-                        <li class="nav-item" data-bs-toggle="modal" data-bs-target="#login-form"><a class="nav-link" href="#login-form" href="{{url_for('login')}}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('user_register') }}">Register</a></li>
+                        <li class="nav-item" data-bs-toggle="modal" data-bs-target="#login-form"><a class="nav-link" href="#login-form" href="{{ url_for('user_login') }}">Login</a></li>
                     </ul>
                 </div>
             </div>
