@@ -84,3 +84,7 @@ class DBStorage:
         result = self.__session.execute("SELECT * FROM calendar")
         calendar = result.fetchall()
         return calendar
+
+
+db_storage = DBStorage()
+db_storage.reload()
