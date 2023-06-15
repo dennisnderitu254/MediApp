@@ -1,0 +1,274 @@
+<!-- services Grid-->
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Services</h2>
+            <h3 class="section-subheading text-muted">Explore our Range of Specialized Medical Consultation Services</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 1-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/general_medical_consultation.jpg') }}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">General Consultation</div>
+                        <div class="portfolio-caption-subheading text-muted">Consult a doctor on anything</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 2-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/specialist_doctor.jpg') }}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Specialist</div>
+                        <div class="portfolio-caption-subheading text-muted">Get refered to a Specialist</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 3-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/telemedicine.jpg') }}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Telemedicine Consultation</div>
+                        <div class="portfolio-caption-subheading text-muted">Consult over the internet</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                <!-- Portfolio item 4-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/second_opinion.jpg') }}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Second Opinion</div>
+                        <div class="portfolio-caption-subheading text-muted">Get a second opinion</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                <!-- Portfolio item 5-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/mental-health.jpg') }}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Mental health</div>
+                        <div class="portfolio-caption-subheading text-muted">Get access to specialized medical care</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <!-- Portfolio item 6-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/lifestyle-consultation.jpg') }}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">lifestyle consultation</div>
+                        <div class="portfolio-caption-subheading text-muted">Lifestyle health consultation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Portfolio Modals-->
+<!-- Portfolio item 1 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='assets/img/close-icon.svg') }}" alt="Close modal" /></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details-->
+                        <h2 class="text-uppercase">General Medical Consultation</h2>
+                        <p class="item-intro text-muted">Get quality consultation from our seasoned doctors</p>
+                        <img class="img-fluid d-block mx-auto" src="{{ url_for('static', filename='assets/img/portfolio/general_medical_consultation.jpg') }}" alt="..." />
+                        <p>Our general medicine consultation service provides comprehensive healthcare for a wide range of common health issues and concerns. Our team of experienced doctors specializes in internal medicine and is dedicated to delivering high-quality care. During your consultation, our doctors will conduct a thorough assessment, taking into account your medical history, symptoms, and any relevant diagnostic tests. They will carefully listen to your concerns, ask detailed questions, and perform a physical examination to gain a comprehensive understanding of your condition.</p>
+                        <p>Following the assessment, our doctors will provide an accurate diagnosis and explain the findings in a clear and understandable manner. They will discuss the available treatment options, including medication, lifestyle modifications, and necessary referrals to specialists if required. Our goal is to empower you with knowledge about your health and involve you in the decision-making process, ensuring that your treatment plan aligns with your preferences and individual needs.</p>
+                        <p>Additionally, our general medicine consultation service places a strong emphasis on preventive care. Our doctors will work with you to develop personalized preventive strategies based on your medical history, risk factors, and lifestyle. This may include recommendations for routine screenings, vaccinations, healthy lifestyle habits, and disease prevention. By focusing on both acute and preventive care, we strive to optimize your overall health and well-being, enabling you to lead a fulfilling and active life.</p>
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Portfolio item 2 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='assets/img/close-icon.svg') }}" alt="Close modal" /></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details-->
+                        <h2 class="text-uppercase">Specialist referrals</h2>
+                        <p class="item-intro text-muted">Get refered to top specialist</p>
+                        <img class="img-fluid d-block mx-auto" src="{{ url_for('static', filename='assets/img/portfolio/specialist_doctor.jpg') }}" alt="..." />
+                        <p>Our specialist referral service ensures that you receive the specialized care you need for complex or specific medical conditions. Our team of doctors includes experts in various medical specialties, each with extensive experience and expertise in their respective fields. If your symptoms or condition require specialized evaluation or treatment, our doctors will conduct a comprehensive assessment and recommend the most suitable specialist for your specific needs.</p>
+                        <p>We understand that navigating the healthcare system and finding the right specialist can be challenging. That's why we take pride in our seamless referral process. Our team will handle all the necessary coordination, including scheduling appointments, sharing medical records, and communicating with the specialist on your behalf. We maintain close relationships with a network of trusted specialists, ensuring that you receive the highest standard of care throughout your treatment journey.</p>
+                        <p>Whether you require a cardiologist, dermatologist, orthopedic surgeon, neurologist, or any other specialized care, our specialist referral service streamlines the process, minimizing delays and ensuring timely access to the expertise you need. Our doctors will continue to collaborate with the specialist, providing comprehensive and integrated care to address your specific medical condition. We are committed to supporting you at every step, ensuring that you receive the specialized attention and treatment necessary to optimize your health outcomes.</p>
+
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Portfolio item 3 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='assets/img/close-icon.svg') }}" alt="Close modal" /></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details-->
+                        <h2 class="text-uppercase">Telemedicine consultation</h2>
+                        <p class="item-intro text-muted">Easily communicate with your favourite doctor online.</p>
+                        <img class="img-fluid d-block mx-auto" src=" {{ url_for('static', filename='assets/img/portfolio/telemedicine.jpg') }}" alt="..." />
+                        <p>Our telemedicine consultation service revolutionizes access to healthcare by bringing our experienced doctors directly to you, wherever you are. Through secure and encrypted video conferencing technology, you can connect with our doctors from the comfort and convenience of your home or any location with an internet connection. This eliminates the need for travel, reduces wait times, and offers a flexible solution for non-emergency medical consultations.</p>
+                        <p>During a telemedicine consultation, our doctors will engage in a thorough discussion to understand your symptoms, medical history, and concerns. They will conduct a virtual examination, guiding you through self-assessment techniques when necessary. By leveraging advanced technology, our doctors can visually assess physical symptoms, review any available medical reports, and provide accurate diagnoses.</p>
+                        <p>Once the diagnosis is determined, our doctors will create a personalized treatment plan tailored to your needs. This may involve prescribing medications, recommending lifestyle modifications, providing guidance on self-care measures, or suggesting further diagnostic tests if required. Our telemedicine consultation service is suitable for a wide range of conditions, including follow-up visits, medication management, minor acute illnesses, chronic disease management, mental health support, and general medical advice. Rest assured that your privacy and confidentiality are of utmost importance to us, and all telemedicine consultations are conducted in a secure and HIPAA-compliant environment.</p>
+
+
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Portfolio item 4 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='assets/img/close-icon.svg') }}" alt="Close modal" /></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details-->
+                        <h2 class="text-uppercase">Second Opinion</h2>
+                        <p class="item-intro text-muted">Get a second opinion from a different specialist</p>
+                        <img class="img-fluid d-block mx-auto" src="{{ url_for('static', filename='assets/img/portfolio/second_opinion.jpg') }}" alt="..." />
+                        <p>Our second opinion consultation service offers you the opportunity to seek an additional expert evaluation of your medical condition. We understand that receiving a complex or critical diagnosis can be overwhelming, and making informed decisions about your health is crucial. Our team of specialized doctors will thoroughly review your medical history, test results, and diagnostic reports to provide an unbiased and comprehensive assessment.</p>
+                        <p> During a second opinion consultation, our doctors will take the time to understand your concerns, answer any questions you may have, and provide clarity on your diagnosis and treatment options. They will offer a fresh perspective, drawing upon their extensive expertise and knowledge in their respective fields. Our goal is to empower you with the information needed to make confident decisions about your healthcare journey.</p>
+                        <p>We believe in the importance of collaboration and patient autonomy. Our second opinion consultation service is designed to complement your existing healthcare team, ensuring that you have all the necessary information to make informed decisions. Whether you seek clarification, alternative treatment options, or reassurance, our doctors are committed to providing you with a thorough and objective assessment. We understand the significance of second opinions in healthcare decision-making and are dedicated to supporting you throughout the process.</p>
+
+
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Portfolio item 5 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='assets/img/close-icon.svg') }}" alt="Close modal" /></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details-->
+                        <h2 class="text-uppercase">Mental Health Consultation</h2>
+                        <p class="item-intro text-muted">Get access to mental health experts</p>
+                        <img class="img-fluid d-block mx-auto" src="{{ url_for('static', filename='assets/img/portfolio/mental-health.jpg') }}" alt="..." />
+                        <p>Our mental health consultation service is centered around providing compassionate support and guidance for your mental well-being. Our team of mental health professionals, including psychiatrists and psychologists, specializes in the diagnosis and treatment of various mental health conditions. We recognize the importance of mental health in overall well-being and offer a safe and empathetic space for you to discuss your concerns.</p>
+                        <p>During a mental health consultation, our experts will conduct a comprehensive assessment to understand your emotional, psychological, and behavioral patterns. They will listen attentively to your experiences, evaluate symptoms, and provide an accurate diagnosis. Our approach to treatment is tailored to your specific needs and may include therapy, medication management, lifestyle adjustments, and coping strategies.</p>
+                        <p>We believe in a holistic and patient-centered approach to mental health. Our mental health consultation service is not just focused on symptom management but also emphasizes promoting overall well-being and improving quality of life. Our dedicated team of mental health professionals will work closely with you to develop a personalized treatment plan, providing ongoing support, guidance, and education. Our goal is to empower you to overcome challenges, build resilience, and achieve better mental health and emotional balance.</p>
+
+
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Portfolio item 6 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='assets/img/close-icon.svg') }}" alt="Close modal" /></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details-->
+                        <h2 class="text-uppercase">Lifestyle and preventive health Consultation</h2>
+                        <p class="item-intro text-muted">Connect with our seasoned doctors and get the best advice</p>
+                        <img class="img-fluid d-block mx-auto" src="{{ url_for('static', filename='assets/img/portfolio/lifestyle-consultation.jpg') }}" alt="..." />
+                        <p>Our lifestyle and preventive health consultation service is designed to help you lead a healthy and fulfilling life by prioritizing preventive care and making positive lifestyle choices. Our doctors will conduct a comprehensive assessment of your medical history, lifestyle habits, and family background to develop personalized plans tailored to your needs.</p>
+                        <p>During a lifestyle and preventive health consultation, our doctors will provide guidance on nutrition, exercise, stress management, and preventive screenings. They will help you understand your risk factors for various diseases and work with you to develop strategies to mitigate those risks. Our approach focuses on empowering you to take control of your health through informed decision-making and adopting healthy habits.</p>
+                        <p>Our lifestyle and preventive health consultation service aims to prevent future health issues and promote overall well-being. By addressing risk factors, implementing healthy lifestyle changes, and emphasizing preventive measures, we strive to improve your quality of life and support you in achieving long-term health goals. Our doctors will provide ongoing support, monitor your progress, and adjust the treatment plan as needed, ensuring that you have the necessary tools to maintain a healthy and balanced lifestyle.</p>
+
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            Close Project
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

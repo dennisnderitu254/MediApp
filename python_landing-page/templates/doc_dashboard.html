@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <!-- modal  -->
+
+
+ <div class="modal fade" id="edit_section" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="edit_section">Patient records</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- update form -->
+          <form>
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" class="form-control" id="first_name" placeholder="first_name">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" id="last_name" placeholder="last_name">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            </div>
+
+
+            <div class="form-group">
+              <label for="previous diagnosis">previous diagnosis</label>
+              <textarea class="form-control" id="previous_diagnosis" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="recent_diagnosis">Recent diagnosis</label>
+                <textarea class="form-control" id="recent_diagnosis" rows="5"></textarea>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- doctors dashboard -->
+<section style=" background-image: url('../static/assets/img/bgprofile.jpg'); background-repeat: no-repeat; background-attachment:fixed">
+    <div class="doctors-section">
+        <div class="doctors-header-section">
+
+        </div>
+        <div class="section-items">
+            <div class="left-section">
+                <ul class="doctors-navigation">
+                    <li><a href="#">All patients</a></li>
+                    <hr>
+                    <li><a href="#">Appointments</a></li>
+                    <hr>
+                    <li><a href="#">Messages</a></li>
+                    <hr>
+                </ul>
+            </div>
+            <div class="right-section">
+                <table class="table" style="color: antiquewhite;">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_section">
+                            edit
+                          </button></td>
+                        <td><button class="btn btn-danger">delete</button></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_section">
+                            edit
+                          </button></td>
+                        <td><button class="btn btn-danger">delete</button></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_section">
+                            edit
+                          </button></td>
+                        <td><button class="btn btn-danger">delete</button></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_section">
+                            edit
+                          </button></td>
+                        <td><button class="btn btn-danger">delete</button></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">5</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_section">
+                            edit
+                          </button></td>
+                        <td><button class="btn btn-danger">delete</button></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">6</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_section">
+                            edit
+                          </button></td>
+                        <td><button class="btn btn-danger">delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
