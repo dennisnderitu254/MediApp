@@ -1,6 +1,0 @@
-#!/usr/bin/python3
-
-from models.engine.dbstorage import DBStorage
-
-storage = DBStorage()
-storage.reload()
