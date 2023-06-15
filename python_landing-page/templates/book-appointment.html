@@ -1,0 +1,49 @@
+<!-- booking form -->
+<div class="modal fade" id="Schedule_appointment" tabindex="-1" role="dialog" aria-labelledby="login-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="text-align: center !important;" id="login-title">Schedule Appointment</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="service">Select service</label>
+                        <select class="form-select">
+                            <option selected>Select</option>
+                            <option>General Consultation</option>
+                            <option>Specialist Referral</option>
+                            <option>Telemedicine Consultation</option>
+                            <option value="">Second Opinion</option>
+                            <option value="">Mental Health Consultation</option>
+                            <option value="">Lifestyle and Preventive Health Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <div class="input-group date" id="datetimepicker1">
+                            <input type="date" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="from-group timepicker">
+                        <label class="form-label" for="form1">Select a time</label>
+                        <input type="time" class="form-control" id="form1" value="2:34 AM">
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary mt-4" style="text-align: center;" type="submit">Book Appointment</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Login</button> -->
+            </div>
+
+        </div>
+    </div>
+</div>

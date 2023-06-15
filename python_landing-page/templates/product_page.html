@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="blog-listing" style=" background-image: url('../static/assets/img/bgprofile.jpg'); background-repeat: no-repeat; background-attachment:fixed">
+    <div class="container mt-4">
+        <div class="row align-items-start">
+            <div class="col-lg-4 m-15px-tb blog-aside">
+                <!-- patient -->
+                <div class="widget widget-author">
+                    <div class="widget-title">
+                        <h3>Patient</h3>
+                    </div>
+                    <div class="widget-body">
+                        <div class="media align-items-center">
+                            <div class="avatar">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="">
+                            </div>
+                            <div class="media-body">
+                                <h6>Welcome <br> Dennis kinyanjui</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End patient -->
+
+                <!--  Appointment card -->
+                <div class="widget widget-post">
+                    <div class="widget-title">
+                        <h3>Active Appointments</h3>
+                    </div>
+                    <div class="widget-body">
+
+                    </div>
+                </div>
+                <!-- End of card -->
+
+                <!--  messages card -->
+                <div class="widget widget-post">
+                    <div class="widget-title">
+                        <h3>Messages</h3>
+                    </div>
+                    <div class="widget-body">
+
+                    </div>
+                </div>
+                <!-- End of card -->
+
+                <!--  Appointment card -->
+                <div class="widget widget-post">
+                    <div class="widget-title">
+                        <h3> Prescriptions</h3>
+                    </div>
+                    <div class="widget-body">
+
+                    </div>
+                </div>
+                <!-- End of card -->
+
+
+            </div>
+            <div class="col-lg-8 m-15px-tb">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="blog-grid">
+                            <div class="blog-img">
+                                <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/general_medical_consultation.jpg') }}" alt="..." />
+                            </div>
+                            <div class="blog-info">
+                                <h5>General Consultation</h5>
+                                <p> Receive comprehensive healthcare from experienced doctors specializing in internal medicine. Enjoy thorough assessments, accurate diagnoses, and personalized treatment plans tailored to your needs.</p>
+
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#Schedule_appointment">Book Appointment </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="blog-grid">
+                            <div class="blog-img">
+                                <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/specialist_doctor.jpg') }}" alt="..." />
+                            </div>
+                            <div class="blog-info">
+                                <h5>Specialist Referral</h5>
+                                <p> Gain access to a network of trusted specialists for complex medical conditions. Benefit from seamless coordination, timely appointments, and continued collaboration between our doctors and the specialists, ensuring comprehensive and integrated care.</p>
+
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#Schedule_appointment">Book Appointment </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="blog-grid">
+                            <div class="blog-img">
+                                <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/telemedicine.jpg') }}" alt="..." />
+                            </div>
+                            <div class="blog-info">
+                                <h5>Telemedicine Consultation</h5>
+                                <p> Experience the convenience of virtual consultations with our experienced doctors. Connect securely from anywhere, receive accurate diagnoses, and personalized treatment plans, all without the need for travel or long wait times.</p>
+
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#Schedule_appointment">Book Appointment </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="blog-grid">
+                            <div class="blog-img">
+                                <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/second_opinion.jpg') }}" alt="..." />
+                            </div>
+                            <div class="blog-info">
+                                <h5>Second Opinion</h5>
+                                <p> Gain peace of mind with an additional expert evaluation of your medical condition. Our specialized doctors provide unbiased assessments, alternative treatment options, and fresh perspectives to empower you in making informed healthcare decisions.</p>
+
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#Schedule_appointment">Book Appointment </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="blog-grid">
+                            <div class="blog-img">
+                                <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/mental-health.jpg') }}" alt="..." />
+                            </div>
+                            <div class="blog-info">
+                                <h5>Mental Health Consultation</h5>
+                                <p> Prioritize your mental well-being with our compassionate support. Our team of psychiatrists and psychologists offers comprehensive assessments, personalized treatment plans, therapy, and medication management to promote emotional balance and improve your overall quality of life.</p>
+
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#Schedule_appointment">Book Appointment </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="blog-grid">
+                            <div class="blog-img">
+                                <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/lifestyle-consultation.jpg') }}" alt="..." />
+                            </div>
+                            <div class="blog-info">
+                                <h5>Lifestyle and Preventive Health Consultation</h5>
+                                <p> Take proactive steps towards a healthier lifestyle. Our doctors will assess your medical history, provide guidance on nutrition, exercise, stress management, and preventive screenings, empowering you to make positive changes and improve your long-term well-being.</p>
+
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#Schedule_appointment">Book Appointment </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+{% include 'book-appointment.html' %}
+
+{% endblock %}
